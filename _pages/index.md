@@ -12,6 +12,9 @@ My primary interest is theoretical condensed matter physics, especially a field-
 Before entering MIT, I participated 53rd International Physics Olympiad as a representative of South Korea (2024). I am also alumni of the 9th Hanseong Sonjaehan Scholarship (2021-2023).
 </p>
 
+<strong>Research</strong>
+- [First research](https://rhlee430.github.io/first-research)
+
 <strong>Recently updated notes</strong>
 
 <ul>
