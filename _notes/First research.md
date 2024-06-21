@@ -1,33 +1,12 @@
 ---
-title: Landau levels and the Haldane pseudo-potential
+title: First research
 ---
-### Code syntax highlighting
+## Outline
 
-You can add code blocks with full syntax color highlighting by wrapping code snippet in triple backticks and specifying the type of the code (`js`, `rb`, `sh`, etc.):
-
-```jl
-// Here's a bit of Julia:
-function idx_to_bitString(N::Int64, idx::Int64)::Vector{Bool}
-
-bitString = zeros(Bool, N) for i in 0:N-1
-
-bitString[1+i] = idx & 1
-
-idx >>= 1
-
-end
-
-return bitString end
-
-function bitString_to_idx(N::Int64, bitString::Vector{Bool})::Int64
-
-idx = 0  
-for i in 0:N-1
-
-if bitString[1+i] idx += 1<<i
-
-end end
-
-return idx end
-```
-
+1. Modification of the Haldane pseudo-potential
+ - [[The Haldane pseudo-potential]] of LLL and 1LL
+ - [[Effects of cavity coupling]] to the pseudo-potential
+2. [[Exact Diagonalization|ED numerics]]
+ - reproduce CFL in LLL and Pfaffian states in 1LL
+ - CFL-Pfaffian transition via cavity coupling
+ 3. Generalizing arguments to Moire systems
