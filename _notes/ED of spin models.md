@@ -9,6 +9,7 @@ $$
  |s_1, s_2, \dots, s_N\rangle \rightarrow |a\rangle \;
  \text{with} \; a={\sum_{i=1}^N s_i \times (2l+1)^i}.
 $$
+
 $l=1/2$ case appears in most cases. For those cases, labeling a basis with an integer $a$ is equivalent to regarding the string as a binary number. Thus, we could make functions that transform an integer(or a string) index to the other side.
 
 ```jl
@@ -42,10 +43,10 @@ end
 We will now consider 1D transverse field Ising model to show how to construct the Hamiltonian in a matrix form.
 ## 1D Transverse Field Ising Model (TFIM)
 
-The model Hamiltonian is 
-$$
-H = -{\sum_{\langle ij\rangle} X_iX_j} \; - h{\sum_{i}Z_i}.
-$$
+The model Hamiltonian is
+
+$$ H = -{\sum_{\langle ij\rangle} X_iX_j} \; - h{\sum_{i}Z_i}.$$
+
 As we now how $H$ acts on $|\{s_i\}\rangle$, we can interpret it with $|a\rangle$ and fill out components of the Hamiltonian matrix.
 
 ```jl
