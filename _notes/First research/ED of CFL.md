@@ -1,5 +1,5 @@
 ---
-title: Exact Diagonalization
+title: Exact Diagonalization of Composite Fermi Liquids
 ---
 ### Code syntax highlighting
 
