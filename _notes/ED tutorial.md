@@ -1,7 +1,8 @@
 ---
-title: Exact Diagonalization of Spin Models
+title: Exact Diagonalization
 ---
-## Indexing bases
+In exact diagonalization (ED), we construct many-body Hamiltonian to a matrix form, and by diagonalizing it, we obtain full spectrum of the Hamiltonian. In this note, we deal with ED calculations with *Julia*. 
+## Interacting Spins
 
 Basis states of spin-$l$ models are represented with a string of 0 and 1. We should map this string to an integer by
 
@@ -96,3 +97,24 @@ end
 ```
 
 For the Hamiltonian with complex components, we should use *Complex64* instead of *Float64*.
+
+## Fermions
+
+An indistinguishability of fermions make numerics a bit complicated. Due to second quantization, we could denote bases of fermionic Fock space with occupation numbers of each sites (including spin d.o.f.). By the Pauli exclusion principle, 0 or 1 is only values for occupations. Moreover, if we define an occupation number of the generic site index $i$ as $n_i$, we can make a correspondence via
+
+$$
+|\{n_i\}\rangle \Rightarrow a = \sum_{i=0}^{N-1}n_i 2^i \, \text{th vector},
+$$
+
+where $N$ is a dimension of single particle Hilbert space, i.e., (# of sites) $\times$ (spin d.o.f.).
+
+We will now apply this formalism to the one-dimensional Hubbard model.
+
+## 1D Hubbard Model
+
+The Hamiltonian of the model is
+
+$$
+H = -t\sum_{\langle i j \rangle, \sigma} \left( c_{i, \sigma}^\dagger c_{j, \sigma} + h.c. \right) + U \sum_i n_{i\uparrow} n_{i\downarrow} - \mu \sum_{i, \sigma} n_{i, \sigma}.
+$$
+
