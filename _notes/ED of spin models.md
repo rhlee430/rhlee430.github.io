@@ -45,9 +45,9 @@ We will now consider 1D transverse field Ising model to show how to construct th
 
 The model Hamiltonian is
 
-$$ H = -{\sum_{\langle ij\rangle} X_iX_j} \; - h{\sum_{i}Z_i}.$$
+$$H = -{\sum_{\langle ij\rangle} X_iX_j} - h{\sum_{i}Z_i}.$$
 
-As we now how $H$ acts on $|\{s_i\}\rangle$, we can interpret it with $|a\rangle$ and fill out components of the Hamiltonian matrix.
+As we now how $H$ acts on spins, we can interpret it with other labels and fill out components of the Hamiltonian matrix.
 
 ```jl
 # Example: 1D TFIM
