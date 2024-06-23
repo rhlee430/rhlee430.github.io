@@ -118,3 +118,63 @@ $$
 H = -t\sum_{\langle i j \rangle, \sigma} \left( c_{i, \sigma}^\dagger c_{j, \sigma} + h.c. \right) + U \sum_i n_{i\uparrow} n_{i\downarrow} - \mu \sum_{i, \sigma} n_{i, \sigma}.
 $$
 
+```jl
+# construct dense matrix representation of the Hubbard Hamiltonian
+function construct_matH_dense(parms::Tuple{Float64, Float64, Float64}, siteNum::Int64 ; pbc::Bool= false)::Hermitian{ComplexF64, Matrix{ComplexF64}}
+
+	# parameters
+	t, U, mu = parms
+	
+	# combined Hilbert space dimension
+	totNum = 2 * siteNum
+	matDim = 1 << totNum
+	
+	# construct matrix
+	matH = zeros(ComplexF64, matDim, matDim)
+	for idx in 0:matDim - 1
+		sqState = idx_to_bitString(totNum, idx)
+	  
+		# hopping term
+		for i in 0:siteNum - 1, s in 0:1
+			
+			# (right-)nearest neighbor siteNum
+			if !pbc && i == siteNum - 1
+				continue
+			end
+			ip = (i+1) % siteNum
+				
+			# c+[ip, s] c[i, s] |idx> = (val)*|idx_>
+			# or c[ip, s] c+[i, s] |idx> = (val)*|idx_>
+			if sqState[2*i+s+1] == sqState[2*ip+s+1]
+				continue
+			end
+			
+			sign_JW = 1.0
+			if sum(@view sqState[1:2*i+s])%2 == 1; sign_JW = - sign_JW; end
+			sqState[2*i+s+1] = !sqState[2*i+s+1]
+			
+			if sum(@view sqState[1:2*ip+s])%2 == 1; sign_JW = - sign_JW; end
+			sqState[2*ip+s+1] = !sqState[2*ip+s+1]
+			
+			idx_ = bitString_to_idx(totNum, sqState)
+			
+			matH[1+idx_, 1+idx] += sign_JW * (-t)
+			
+			# restore to original sqState
+			sqState[2*i+s+1] = !sqState[2*i+s+1]
+			sqState[2*ip+s+1] = !sqState[2*ip+s+1]
+		end
+		
+		# Hubbard interaction
+		for i in 0:siteNum - 1
+			if sqState[2*i+1] && sqState[2*i+2]
+				matH[1+idx, 1+idx] += U
+			end
+		end
+		
+		# chemical potential
+		matH[1+idx, 1+idx] += -mu * sum(sqState)
+	end
+	return Hermitian(matH)
+end
+```
