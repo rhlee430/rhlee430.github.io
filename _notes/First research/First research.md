@@ -4,7 +4,7 @@ title: First research
 ## Outline
 
 1. Modification of the Haldane pseudo-potential
- - [[The Haldane pseudo-potential]] of LLL and 1LL
+ - [[The Haldane pseudopotential]] of LLL and 1LL
  - [[Effects of cavity coupling]] to the pseudo-potential
 2. [[ED of CFL|ED numerics]]
  - reproduce CFL in LLL and Pfaffian states in 1LL
