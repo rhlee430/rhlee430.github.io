@@ -96,7 +96,7 @@ function construct_matH_dense(siteNum::Int64, h::Float64; pbc::Bool=true)::Hermi
 end
 ```
 
-For the Hamiltonian with complex components, we should use *Complex64* instead of *Float64*.
+For the Hamiltonian with complex components, we should use *ComplexF64* instead of *Float64*.
 
 ## Fermions
 
