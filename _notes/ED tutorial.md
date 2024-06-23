@@ -118,6 +118,7 @@ $$
 H = -t\sum_{\langle i j \rangle, \sigma} \left( c_{i, \sigma}^\dagger c_{j, \sigma} + h.c. \right) + U \sum_i n_{i\uparrow} n_{i\downarrow} - \mu \sum_{i, \sigma} n_{i, \sigma}.
 $$
 
+Following constructs the electron Hubbard model Hamiltonian in a matrix form.
 ```jl
 # construct dense matrix representation of the Hubbard Hamiltonian
 function construct_matH_dense(parms::Tuple{Float64, Float64, Float64}, siteNum::Int64 ; pbc::Bool= false)::Hermitian{ComplexF64, Matrix{ComplexF64}}
@@ -178,3 +179,17 @@ function construct_matH_dense(parms::Tuple{Float64, Float64, Float64}, siteNum::
 	return Hermitian(matH)
 end
 ```
+
+For example, we could obtain energy eigenvalues of the model with two sites as follows.
+
+```jl
+# 2 sites, t=1.0, U=50.0, mu=0.0
+matH_dense = construct_matH_dense((1.0, 50.0, 0.0), 2)
+
+
+# dense diagonalization
+vals, vecs = eigen(matH_dense)
+println(vals)
+```
+
+Low energy energy spectrum of Hubbard model with a half-filling could be explained with the *superexchange* interaction, which favors a spin singlet state.
