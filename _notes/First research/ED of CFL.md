@@ -5,8 +5,9 @@ In this note, we deal with exact diagonalization of composite fermi liquids. We 
 
 ## Bloch Wave Functions
 
-We follow Ref. [^1] for preparing reference states for the diagonalization. 
+We follow Ref. \[1\] for preparing reference states for the diagonalization. It is a way that Ref. \[2\] conducted ED. 
 
 ---
-[^1]: Y.-L. Wu, N. Regnault, and B. A. Bernevig, _Bloch Model Wave Functions and Pseudopotentials for All Fractional Chern Insulators_, Phys. Rev. Lett. **110**, 106802 (2013).
+\[1\] Y.-L. Wu, N. Regnault, and B. A. Bernevig, _Bloch Model Wave Functions and Pseudopotentials for All Fractional Chern Insulators_, Phys. Rev. Lett. **110**, 106802 (2013).
+\[2\] H. Goldman, A. P. Reddy, N. Paul, and L. Fu, _Zero-Field Composite Fermi Liquid in Twisted Semiconductor Bilayers_, Phys. Rev. Lett. **131**, 136501 (2023).
 
