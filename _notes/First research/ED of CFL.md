@@ -9,7 +9,7 @@ In this note, we deal with exact diagonalization of composite fermi liquids. We 
 $$
 |\textbf{k}\rangle = \frac{1}{\sqrt{N_1}} \sum _{m=0}^{N_1-1} e^{i2\pi m k_1/N_1} |j=m N_2 + k_2 \rangle.
 $$
-These states are periodic in $k_1$, $|k_1+N_1, k_2\rangle =|k_1, k_2\rangle$, but *quasi*-periodic in $k_2$, $|k_1, k_2+N_2\rangle = e^{-i2\pi k_1/N_1} |k_1, k_2\rangle$. The LLL-projected density is 
+These states are periodic in $k_1$, $|k_1+N_1, k_2\rangle =|k_1, k_2\rangle$, but quasi-periodic in $k_2$, $|k_1, k_2+N_2\rangle = e^{-i2\pi k_1/N_1} |k_1, k_2\rangle$. The LLL-projected density is 
 $$
 \rho_{\textbf{q}}=e^{-\textbf{q}^2 l^2/4} \sum_{\textbf{k}}^{BZ} e^{-i 2\pi q_1(k_2+q_2/2)/N_\phi} |\textbf{k}\rangle \langle \textbf{k}+\textbf{q}|.
 $$
